@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "CreateMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>CreateMessage</h2>
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    textarea:focus {
+        border-color: #3b82f6;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #3b82f6;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #2563eb;
+    }
+
+    media (max-width: 768px) {
+        form {
+            padding: 20px;
+        }
+
+        input[type="text"],
+        textarea,
+        .btn {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+    }
+</style>
+
+
+
+<form method="post">
+
+    <label>Name</label>
+    <input type="text" name="NameSurname" />
+    <br />
+    <label>Mail</label>
+    <input type="text" name="Mail" />
+    <br />
+    <label>Subject</label>
+    <input type="text" name="Subject" />
+    <br />
+    <label>Message</label>
+    <textarea name="MessageContent"></textarea>
+    <button class="btn btn-primary">Oluştur</button>
+</form>

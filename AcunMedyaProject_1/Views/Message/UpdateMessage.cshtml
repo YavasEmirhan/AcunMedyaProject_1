@@ -1,0 +1,120 @@
+﻿@model AcunMedyaProject_1.Models.TBL_Message
+@{
+    ViewBag.Title = "UpdateMessage";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>UpdateMessage</h2>
+
+
+<style>
+
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 650px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border-color: #3b82f6;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-success {
+        background-color: #10b981;
+        color: white;
+    }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+
+    .media (max-width: 768px) {
+        form
+
+    {
+        padding: 20px;
+    }
+
+    input[type="text"],
+    textarea,
+    .btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+    }
+</style>
+
+
+<form method="post">
+
+    @Html.HiddenFor(m => m.MessageID)
+    <label>Gönderen İsim </label>
+    @Html.TextBoxFor(m => m.NameSurname)
+    <label>Gönderen E-posta</label>
+    @Html.TextBoxFor(m => m.Mail)
+    <label>Konu</label>
+    @Html.TextAreaFor(m => m.Subject)
+    <label>Mesaj İçeriği</label>
+    @Html.TextBoxFor(m => m.MessageContent)
+    <button class="btn btn-success"> Güncelle</button>
+
+</form>
+

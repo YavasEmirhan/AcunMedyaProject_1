@@ -1,0 +1,28 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Education>
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+    <h3 class="resume-title">Sumary</h3>
+
+    <div class="resume-item pb-0">
+        <h4>Özet</h4>
+        <p><em>Merhaba ben Emirhan YAVAŞ.Bilgisayar mühendisliği 4. sınıf öğrencisiyim. Çeşitli programlama dilleri ve arayüzleri kullaranak çeşitli projeler geliştiriyorum..</em></p>
+        <ul>
+            <li>İstanbul/Türkiye</li>
+            <li>+90 (507) 158-1546</li>
+            <li>www domain alınacak</li>
+        </ul>
+    </div><!-- Edn Resume Item -->
+
+    <h3 class="resume-title">Education</h3>
+    @foreach (var item in Model)
+    {
+        <div class="resume-item">
+            <h4>@item.Section</h4>
+            <h5>@item.StartYear - @item.EndYear</h5>
+            <p><em>@item.Name</em></p>
+            <p>@item.Description</p>
+        </div>
+        }
+       
+
+
+    </div>

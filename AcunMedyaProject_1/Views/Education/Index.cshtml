@@ -1,0 +1,142 @@
+﻿@Model List <AcunMedyaProject_1.Models.TBL_Education>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/AdminLayout/Index.cshtml";
+        int count = 0;
+    }
+
+    <h2>Bursaıeğitim sayfası</h2>
+
+
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 40px;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        thead {
+            background: #f1f5f9;
+        }
+
+            thead th {
+                text-align: center;
+                padding: 15px;
+                font-size: 16px;
+                font-weight: 600;
+                color: #333;
+                border-bottom: 2px solid #dee2e6;
+            }
+
+        tbody td {
+            text-align: center;
+            padding: 12px 15px;
+            font-size: 14px;
+            color: #555;
+            border-bottom: 1px solid #e9ecef;
+            background-color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+
+        tbody tr:hover td {
+            background-color: #f1faff;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger {
+            background-color: #ef4444;
+            color: white;
+            border: none;
+        }
+
+            .btn-danger:hover {
+                background-color: #dc2626;
+            }
+
+        .btn-dark {
+            background-color: #374151;
+            color: white;
+            border: none;
+        }
+
+            .btn-dark:hover {
+                background-color: #1f2937;
+            }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+        }
+
+            .btn-primary:hover {
+                background-color: #2563eb;
+            }
+    </style>
+
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Eğitim sayısı</th>
+                    <th>Eğitim Başlangıç Yılı</th>
+                    <th>Eğitim Bitiş Yılı</th>
+                    <th>Eğitim ismi</th>
+                    <th>Eğitim Aççıklaması</th>
+                    <th>Eğitim Bölümü</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @* for while do while foreach*@
+
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@item.EducationID</td>>
+                        <td>@item.StartYear</td>
+                        <td>@item.EndYear</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td>@item.Section</td>
+                        <td><a href="/Education/UpdateEducation/@item.EducationID" class="btn btn-danger"> Güncelle</a></td>
+                        <td> <a href="/Education/DeleteEducation/@item.EducationID" class="btn btn-dark">Sil </a></td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <a href="/Education/CreateEducation/" class="btn btn-primary"> Oluştur</a>
+    </div>

@@ -1,0 +1,164 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Message>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Mesajlar Sayfası</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: auto; /* Responsive küçük ekranlar için */
+    }
+
+    table.table-bordered {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
+        font-size: 14px;
+        table-layout: fixed;
+    }
+
+    thead, theader {
+        background: #f1f5f9;
+    }
+
+    thead th, theader th {
+        text-align: center;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 2px solid #dee2e6;
+        word-wrap: break-word;
+    }
+
+    tbody td {
+        text-align: center;
+        padding: 12px 10px;
+        color: #555;
+        border-bottom: 1px solid #e9ecef;
+        background-color: #ffffff;
+        vertical-align: middle;
+        transition: background-color 0.3s ease;
+        word-wrap: break-word;
+    }
+
+    tbody tr:hover td {
+        background-color: #f0faff;
+    }
+
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin: 2px;
+        white-space: nowrap;
+    }
+
+    .btn-success {
+        background-color: #22c55e;
+        color: white;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #16a34a;
+    }
+
+    .btn-danger {
+        background-color: #ef4444;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #dc2626;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #2563eb;
+    }
+
+    media (max-width: 768px) {
+        table :table-bordered {
+            font-size: 13px;
+        }
+
+        thead th, tbody td {
+            padding: 10px;
+        }
+
+        .btn {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <table class="table-bordered">
+        <theader>
+            <tr>
+                <th>Mesaj ID</th>
+                <th>Gönderen İsim</th>
+                <th>Gönderen mail</th>
+                <th>Mesaj Konusu</th>
+                <th>Mesaj İçeriği</th>
+                <th>Güncelle</th>
+                <th>Sİl</th>
+            </tr>
+        </theader>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MessageID</td>
+                    <td>@item.NameSurname</td>
+                    <td>@item.Mail</td>
+                    <td>@item.Subject</td>
+                    <td>@item.MessageContent</td>
+                    <td><a href="/Message/UpdateMessage/@item.MessageID " class="btn btn-success"> Güncelle</a></td>
+                    <td><a href="/Message/DeleteMessage/@item.MessageID" class="btn btn-danger"> Sil</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a href="/Message/CreateMessage/" class="btn btn-primary">Oluştur</a>
+    </div>
+</div>

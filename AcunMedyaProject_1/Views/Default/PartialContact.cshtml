@@ -1,0 +1,63 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Contact>
+<style>
+    .contact-info-card {
+        background: #ffffff;
+        padding: 30px 25px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        margin-bottom: 20px;
+        transition: all 0.4s ease;
+        text-align: center;
+    }
+
+        .contact-info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info-card i {
+            font-size: 36px;
+            color: #00327d;
+            margin-bottom: 15px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-card:hover i {
+            color: #d43076;
+        }
+
+        .contact-info-card h3 {
+            font-size: 20px;
+            color: #1d3557;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-card p {
+            font-size: 15px;
+            color: #555;
+            margin: 0;
+        }
+</style>
+
+
+<div class="col-lg-4">
+    <div class="contact-info-card" data-aos="fade-up" data-aos-delay="200">
+        <i class="bi bi-geo-alt"></i>
+        <h3>Adres</h3>
+        <p>@Model[0].Adress</p>
+    </div>
+
+    <div class="contact-info-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="bi bi-telephone"></i>
+        <h3>Telefon</h3>
+        <p>@Model[0].Phone</p>
+    </div>
+
+    <div class="contact-info-card" data-aos="fade-up" data-aos-delay="400">
+        <i class="bi bi-envelope"></i>
+        <h3>Email</h3>
+        <p>@Model[0].Email</p>
+    </div>
+</div>

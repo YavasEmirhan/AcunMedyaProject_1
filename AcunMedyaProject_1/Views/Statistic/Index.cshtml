@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<h2>İstatistik Sayfası</h2>
+
+<style>
+    body {
+        background-color: #f3f4f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #1f2937;
+    }
+
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .stat-card {
+        background: linear-gradient(135deg, #a5b4fc, #c4b5fd);
+        border-radius: 16px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+        color: white;
+        position: relative;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        background: linear-gradient(135deg, #818cf8, #a78bfa);
+    }
+
+    .stat-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+        display: block;
+        color: #ffffff;
+    }
+
+    .stat-card h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #f9fafb;
+    }
+
+    .stat-card p {
+        font-size: 26px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    media (max-width: 768px) {
+        .stats-container {
+            padding: 10px;
+        }
+
+        .stat-card {
+            padding: 20px;
+        }
+
+        .stat-card p {
+            font-size: 22px;
+        }
+    }
+</style>
+
+<div class="stats-container">
+
+    <div class="stat-card">
+        <div class="stat-icon">📂</div>
+        <h3>Kategori Sayısı</h3>
+        <p>@ViewBag.CategoryCount</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">🗣️</div>
+        <h3>Referans Sayısı</h3>
+        <p>@ViewBag.TestimonialCount</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">🛠️</div>
+        <h3>Proje Sayısı</h3>
+        <p>@ViewBag.ProjectCount</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <h3>Son Eklenen Proje</h3>
+        <p>@ViewBag.LastProjectName</p>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">📊</div>
+        <h3>Kategori Bilgisi</h3>
+        <p>Buraya kategori bilgisi gelecek</p>
+    </div>
+
+</div>

@@ -1,0 +1,170 @@
+﻿<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+    /* Kart görünümü */
+    .contact-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        transition: all 0.3s ease;
+    }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+    /* Input ve Textarea güzelleştirme */
+    .form-control {
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        padding: 12px 15px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+        .form-control:focus {
+            border-color: #00327d;
+            background-color: #eef5ff;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 50, 125, 0.3);
+        }
+
+    /* Gönder Butonu */
+    .btn-submit {
+        margin-top: 10px;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 10px;
+        background-color: #00327d;
+        color: white;
+        border: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-submit:hover {
+            background-color: #001e4d;
+            transform: scale(1.05);
+        }
+
+        /* Spinner */
+        .btn-submit.loading::after {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            border: 2px solid transparent;
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            transform: translateY(-50%);
+        }
+
+    <style >
+    /* Animasyon */
+    keyframes spin {
+        0%
+
+    {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-50%) rotate(360deg);
+    }
+    }
+</style>
+
+
+
+
+
+</style>
+
+<div class="col-lg-8">
+    <div class="contact-card">
+        <form id="contactForm" data-aos="fade-up" data-aos-delay="200">
+            <div class="row gy-4">
+
+                <div class="col-md-6">
+                    <input type="text" name="NameSurname" class="form-control" placeholder="İsim Soyisim" required="">
+                </div>
+
+                <div class="col-md-6">
+                    <input type="email" name="Mail" class="form-control" placeholder="E-Mail" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <input type="text" name="Subject" class="form-control" placeholder="Konu" required="">
+                </div>
+
+                <div class="col-md-12">
+                    <textarea name="MessageContent" rows="6" class="form-control" placeholder="Mesajınız" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn-submit">Mesaj Gönder</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Sayfa yenilemesini engelle
+
+        const form = e.target;
+        const formData = new FormData(form);
+        const submitButton = form.querySelector('.btn-submit');
+
+        // Butona loading spinnerı ekle
+        submitButton.classList.add('loading');
+
+        fetch('@Url.Action("PartialMessage", "Default")', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Mesajınız Gönderildi!',
+                    text: 'En kısa sürede size dönüş yapacağız.',
+                    timer: 5000,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Tamam',
+                    backdrop: `
+                        rgba(0,0,123,0.4)
+                        url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                        left top
+                        no-repeat
+                    `
+                });
+                form.reset(); // Formu temizle
+            } else {
+                throw new Error('Sunucu hatası!');
+            }
+        })
+        .catch(error => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Hata!',
+                text: 'Mesaj gönderilirken bir sorun oluştu.'
+            });
+        })
+        .finally(() => {
+            submitButton.classList.remove('loading');
+        });
+    });
+</script>

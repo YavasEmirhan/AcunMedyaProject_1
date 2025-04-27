@@ -1,0 +1,98 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Job>
+<style>
+    /* Resume başlıkları */
+    .resume-title {
+        font-size: 26px;
+        color: #00327d;
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+        border-bottom: 2px solid #d43076;
+        padding-bottom: 8px;
+    }
+
+    /* Kart yapısı */
+    .resume-item {
+        background: #ffffff;
+        border-left: 4px solid #00327d;
+        padding: 25px 30px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+    }
+
+        .resume-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .resume-item h4 {
+            font-size: 22px;
+            color: #1d3557;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .resume-item h5 {
+            font-size: 14px;
+            background: #d43076;
+            color: #fff;
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .resume-item em {
+            font-style: normal;
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .resume-item ul {
+            padding-left: 20px;
+        }
+
+            .resume-item ul li {
+                margin-bottom: 10px;
+                color: #444;
+                font-size: 15px;
+                line-height: 1.6;
+                position: relative;
+            }
+
+                .resume-item ul li::before {
+                    content: "•";
+                    color: #d43076;
+                    font-weight: bold;
+                    display: inline-block;
+                    width: 1em;
+                    margin-left: -1em;
+                }
+</style>
+
+
+<div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+    <h3 class="resume-title">Professional Experience</h3>
+    @foreach (var item in Model)
+    {
+        <div class="resume-item">
+            <h4>@item.Title</h4>
+            <h5>2024 - Present</h5>
+            <p><em>@item.CompanyName</em></p>
+            <ul>
+                <li>@item.Description</li>
+
+            </ul>
+        </div>
+
+    }
+
+
+
+</div>

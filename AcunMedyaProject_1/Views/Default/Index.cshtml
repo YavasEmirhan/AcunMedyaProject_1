@@ -1,0 +1,642 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<style>
+/* Genel font ayarları */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #444;
+    background-color: #f8f9fa;
+}
+
+/* Başlıklar */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #00327d;
+    letter-spacing: 0.5px;
+}
+
+/* Paragraflar */
+p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Butonlar */
+.btn {
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 22px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #00327d;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #001e4d;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #d43076;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: #b02564;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #22c55e;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Section Başlıkları */
+.section-title h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #d43076;
+    display: block;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Kartlar (Portfolio ve Resume için) */
+.project-card, .resume-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover, .resume-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer */
+.footer {
+    background: #00327d;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #d43076;
+}
+
+.footer a:hover {
+    color: #ffffff;
+}
+
+/* Scroll-to-top butonu */
+#scroll-top {
+    background: #d43076;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 22px;
+    transition: background-color 0.3s ease;
+}
+
+#scroll-top:hover {
+    background: #b02564;
+}
+
+/* Responsive */
+media (max-width: 768px) {
+    .hero h2 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .hero p {
+        font-size: 16px;
+    }
+}
+</style>
+
+
+
+@Html.Action("PartialHead", "Default")
+
+<body class="index-page">
+
+    <style>
+/* Header Genel */
+.header {
+    background: linear-gradient(135deg, #f8f9fa 0%, #dbe9f4 100%); /* Modern açık renkli degrade arka plan */
+    height: 70px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 0 20px;
+    backdrop-filter: blur(10px); /* Hafif cam efekti */
+}
+
+/* Logo veya Site İsmi */
+.sitename {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #00327d; /* Koyu mavi yazı */
+    margin: 0;
+}
+
+/* Menü Linkleri */
+.navbar a, .navbar a:visited {
+    color: #00327d;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Menü Hover Efekti */
+.navbar a:hover {
+    color: #ff66b2; /* Pembe hover rengi korundu */
+}
+
+/* Hover Altı Çizgi Efekti */
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff66b2;
+    transition: width 0.3s;
+    margin-top: 5px;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
+/* İçerik düzeni */
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .navbar a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+    </style>
+
+
+
+    <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <h1 class="sitename">Emirhan Yavaş</h1>
+            </a>
+
+            @Html.Action("PartialMenu", "Default")
+        </div>
+    </header>
+
+
+    <main class="main">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero section dark-background">
+
+
+            <style>
+                /* Hero Section */
+                .hero {
+                    background: linear-gradient(rgba(0, 50, 125, 0.6), rgba(0, 50, 125, 0.6)), url('../img/hero-bg.jpg') center center / cover no-repeat fixed;
+                    width: 100%;
+                    min-height: 90vh;
+                    position: relative;
+                    padding: 120px 0 60px 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    overflow: hidden;
+                }
+
+                    .hero:before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background: rgba(0, 0, 0, 0.3);
+                        z-index: 2;
+                    }
+
+                    .hero .container {
+                        position: relative;
+                        z-index: 3;
+                        text-align: center;
+                        transform: translateY(50px);
+                        opacity: 0;
+                        transition: transform 1s ease, opacity 1s ease;
+                    }
+
+                    .hero.show .container {
+                        transform: translateY(0);
+                        opacity: 1;
+                    }
+
+                    .hero h2 {
+                        margin: 0;
+                        font-size: 42px;
+                        font-weight: 700;
+                        line-height: 56px;
+                        color: #ffffff;
+                        transition: color 0.5s ease;
+                    }
+
+                    .hero p {
+                        margin-top: 10px;
+                        font-size: 18px;
+                        color: #cfd8dc;
+                        transition: color 0.5s ease;
+                    }
+
+                    .hero .btn-scroll {
+                        display: block;
+                        margin-top: 40px;
+                        color: #cfd8dc;
+                        transition: transform 0.4s ease, color 0.4s ease;
+                    }
+
+                        .hero .btn-scroll:hover {
+                            transform: translateY(-5px);
+                            color: #d43076;
+                        }
+
+                        .hero .btn-scroll i {
+                            font-size: 48px;
+                        }
+
+                    /* Responsive */
+                    .hero h2 {
+                        font-size: 42px;
+                    }
+
+                    .hero p {
+                        font-size: 18px;
+                    }
+            </style>
+
+
+
+
+
+
+            <div class="container text-center" data-aos="fade-up" data-aos-delay="100">
+                <h2>Merhaba,Ben Emirhan!</h2>
+                <p>İstabulda Bilgisayar Mühendisiyim<br></p>
+                <a href="#about" class="btn-scroll" title="Scroll Down"><i class="bi bi-chevron-down"></i></a>
+            </div>
+
+        </section>
+
+
+        </section><!-- /Hero Section -->
+        <!-- About Section -->
+        @Html.Action("PartialAbout", "Default")
+        <!-- /About Section -->
+        <!-- Skills Section -->
+        @Html.Action("PartialSkills", "Default")
+        <!-- /Skills Section -->
+        <!-- Resume Section -->
+
+        <section id="resume" class="resume section light-background">
+
+            <style>
+                #resume {
+                    background: #f9f9f9;
+                    background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png');
+                    padding: 60px 0;
+                }
+
+                .section-title h2 {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: #2c4964;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+
+                .resume-item {
+                    background: #ffffff;
+                    border-left: 4px solid #d43076;
+                    padding: 20px 30px;
+                    margin-bottom: 20px;
+                    position: relative;
+                    border-radius: 8px;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+                    transition: all 0.4s ease;
+                }
+
+                    .resume-item:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+                    }
+
+                    .resume-item h4 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        color: #00327d;
+                        margin-bottom: 8px;
+                    }
+
+                    .resume-item h5 {
+                        font-size: 14px;
+                        background: #d43076;
+                        color: white;
+                        display: inline-block;
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                        margin-bottom: 10px;
+                    }
+
+                    .resume-item p {
+                        font-size: 15px;
+                        color: #6c757d;
+                        line-height: 1.6;
+                    }
+
+                    .resume-item ul {
+                        padding-left: 20px;
+                    }
+
+                        .resume-item ul li {
+                            padding-bottom: 10px;
+                            font-size: 14px;
+                            color: #555;
+                        }
+            </style>
+
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Öz Geçmiş</h2>
+
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row">
+
+                    @Html.Action("PartialResume", "Default")
+
+                    @Html.Action("PartialJob", "Default")
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- /Resume Section -->
+        <!-- Services Section -->
+        @Html.Action("PartialService", "Default")
+        <!-- /Services Section -->
+        <!-- Portfolio Section -->
+        @Html.Action("PartialPortfolio", "Default")
+        <!-- /Portfolio Section -->
+        <!-- Testimonials Section -->
+        @Html.Action("PartialTestimonial", "Default")
+        <!-- /Testimonials Section -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact section" style="background-color: #f9f9f9; background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png'); background-repeat: repeat; padding: 60px 0; ">
+
+            <style>
+                #contact {
+                    background-color: #f9f9f9;
+                    background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png');
+                    background-repeat: repeat;
+                    padding: 60px 0;
+                }
+
+                .section-title h2 {
+                    font-family: 'Playfair Display', serif;
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: #ffffff;
+                    margin-bottom: 10px;
+                    text-align: center;
+                }
+
+                .section-title p {
+                    font-family: 'Poppins', sans-serif;
+                    color: #cfd8dc;
+                    font-size: 16px;
+                    text-align: center;
+                    margin-bottom: 30px;
+                }
+
+                .container {
+                    position: relative;
+                    z-index: 2;
+                }
+            </style>
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2 style="color: #00327d">İletişim</h2>
+                <p style="color: #00327d ">İletişim bilgileri ektedir</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    @Html.Action("PartialContact", "Default")
+
+                    @Html.Action("PartialMessage", "Default")
+                    <!-- End Contact Form -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- /Contact Section -->
+
+    </main>
+
+    <footer id="footer" class="footer light-background">
+        <div class="container">
+            <h3 class="sitename">Emirhan Yavaş</h3>
+            <p>Portfolyomu ve projelerimi görmek için sosyal medya hesaplarımı takip edebilirsin!</p>
+
+            <!-- Sosyal Medya Linkleri -->
+            <div class="social-links d-flex justify-content-center">
+                <a href="javascript:void(0);" onclick="showInstagram()" class="social-icon"><i class="bi bi-instagram"></i></a>
+                <a href="javascript:void(0);" onclick="showLinkedIn()" class="social-icon"><i class="bi bi-linkedin"></i></a>
+                <a href="javascript:void(0);" onclick="showGithub()" class="social-icon"><i class="bi bi-github"></i></a>
+            </div>
+
+            <div class="container">
+                <div class="copyright">
+                    <span>Copyright</span> <strong class="px-1 sitename">Emirhan Yavaş</strong> <span>All Rights Reserved</span>
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function showInstagram() {
+            Swal.fire({
+                title: 'Instagram',
+                text: 'emrhnyvs_',
+                icon: 'info',
+                confirmButtonText: 'Takip Et',
+                confirmButtonColor: '#00327d'
+            });
+        }
+
+        function showLinkedIn() {
+            Swal.fire({
+                title: 'LinkedIn',
+                html: '<a href="https://tr.linkedin.com/in/emirhan-yava%C5%9F-1907fb1907?trk=people-guest_people_search-card" target="_blank" style="color:#00327d;">Profilimi Görüntüle</a>',
+                icon: 'info',
+                confirmButtonText: 'Git',
+                confirmButtonColor: '#00327d'
+            });
+        }
+
+        function showGithub() {
+            Swal.fire({
+                title: 'GitHub',
+                html: '<a href="https://github.com/YavasEmirhan" target="_blank" style="color:#00327d;">Repo Profilim</a>',
+                icon: 'info',
+                confirmButtonText: 'Git',
+                confirmButtonColor: '#00327d'
+            });
+        }
+    </script>
+
+    <style>
+        /* Sosyal medya ikonları */
+        .social-links .social-icon {
+            font-size: 28px;
+            margin: 0 12px;
+            color: #00327d;
+            transition: all 0.4s ease;
+        }
+
+            .social-links .social-icon:hover {
+                color: #d43076;
+                transform: scale(1.2) rotate(10deg);
+            }
+
+        .footer {
+            background: #f9f9f9;
+            padding: 40px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+            .footer h3 {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #00327d;
+            }
+
+            .footer p {
+                font-size: 14px;
+                color: #6c757d;
+            }
+
+            .footer .copyright {
+                margin-top: 20px;
+                font-size: 14px;
+                color: #aaa;
+                text-align: center;
+            }
+
+            .footer .credits {
+                margin-top: 5px;
+                font-size: 12px;
+                color: #bbb;
+                text-align: center;
+            }
+    </style>
+
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/lonely/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lonely/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/lonely/assets/vendor/aos/aos.js"></script>
+    <script src="~/lonely/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/lonely/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/lonely/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/lonely/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/lonely/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/lonely/assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.init-swiper', JSON.parse(document.querySelector('.swiper-config').innerHTML));
+    </script>
+
+
+</body>
+
+</html>

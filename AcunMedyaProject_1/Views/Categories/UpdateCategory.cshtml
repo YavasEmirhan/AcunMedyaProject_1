@@ -1,0 +1,79 @@
+﻿@model AcunMedyaProject_1.Models.TBL_Category
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Kategori güncelleme sayfası</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+        input[type="text"]:focus {
+            border-color: #3b82f6;
+            background: #ffffff;
+            outline: none;
+        }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+</style>
+
+
+<form method="post">
+    @Html.HiddenFor(x => x.CategoryID)
+    <label>Kategori Adı</label>
+    @Html.TextBoxFor(x => x.CategoryName)
+    <button> Güncelle</button>
+</form>

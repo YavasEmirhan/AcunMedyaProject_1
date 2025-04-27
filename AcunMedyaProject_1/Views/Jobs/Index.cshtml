@@ -1,0 +1,71 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Jobs>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/AdminLayout/Index.cshtml";
+    }
+
+    <h2>Bursaıs deneyim sayfası</h2>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            color: #333;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        input[type="date"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+
+    <table>
+        <thead>
+            <tr>
+                <th>JobID</th>
+                <th>Title</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>CompanyName</th>
+                <th>Description</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.JobID</td>
+                    <td>@item.Title</td>
+                    <td>@item.StartDate</td>
+                    <td>@item.EndDate</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.Description</td>
+                    <td><a href="///@item.JobID" class="btn btn-danger"> Güncelle</a></td>
+                    <td> <a href="///@item.JobID" class="btn btn-dark">Sil </a></td>
+                </tr>
+            }
+
+        </tbody>
+        <a href="///" class="btn btn-primary"> Oluştur</a>
+    </table>

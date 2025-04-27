@@ -1,0 +1,124 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Skills>
+<style>
+    #team {
+        background: #f9f9f9;
+        background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png');
+        padding: 80px 0;
+    }
+
+    .section-title h2, .section-title p {
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        color: #00327d;
+        margin-bottom: 15px;
+    }
+
+    .skills-content {
+        margin-top: 30px;
+    }
+
+    .progress {
+        background: #e0e0e0;
+        height: 60px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+        padding: 10px 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+        .progress:hover {
+            transform: scale(1.02);
+        }
+
+    .skill {
+        font-weight: 600;
+        font-size: 15px;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    /* Progress Bar Tasarımı */
+    .progress {
+        background: #e0e0e0;
+        height: 30px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .progress-bar-wrap {
+        background: #dfe6e9;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0;
+        background: linear-gradient(90deg, #00327d, #6a11cb);
+        border-radius: 10px;
+        transition: width 2s ease-in-out, background 1s ease;
+    }
+
+    /* Skill isimleri */
+    .skill {
+        font-weight: 600;
+        font-size: 16px;
+        color: #00327d;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+
+</style>
+
+
+
+
+<section id="team" class="skills section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2 style="color: #00327d">Skills</h2>
+        <p style="color: #00327d">Geliştirdiğim yeteneklerim ve hakimiyet derecelerim</p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row skills-content skills-animation">
+
+            <div class="col-lg-6">
+                @for (int i = 0; i < Model.Count / 2; i++)
+                {
+                    <div class="progress">
+                        <span class="skill"><span>@Model[i].SkillName</span> <i class="val">@Model[i].Percentage%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="@Model[i].Percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="col-lg-6">
+                @for (int i = Model.Count / 2; i < Model.Count; i++)
+                {
+                    <div class="progress">
+                        <span class="skill"><span>@Model[i].SkillName</span> <i class="val">@Model[i].Percentage%</i></span>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="@Model[i].Percentage" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+
+</section>

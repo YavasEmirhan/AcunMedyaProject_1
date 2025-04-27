@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "CreateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>CreateTestimonial</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+        margin-top: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #3b82f6;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-success {
+        background-color: #10b981;
+        color: white;
+    }
+
+    .btn-success:hover {
+        background-color: #059669;
+    }
+
+    media (max-width: 768px) {
+        form {
+            padding: 20px;
+        }
+
+        .form-control,
+        .btn {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+    }
+</style>
+
+
+<form method="post">
+    <label> Referans adı</label>
+    <input type="text" name="TestimonialName" class="form-control" />
+    <label>Referans Açıklaması</label>
+    <input type="text" name="Description2" class="form-control" />
+    <label>Referans Resmi</label>
+    <input type="text" name="ImageUrl" class="form-control" />
+    <label>Sayfa Açıklaması</label>
+    <input type="text" name="Description1" class="form-control" />
+    <label>Unvan</label>
+    <input type="text" name="Title" class="form-control" />
+    <button class=" btn btn-success"> Ekle</button>
+</form>

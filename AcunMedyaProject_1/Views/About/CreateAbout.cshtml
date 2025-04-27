@@ -1,0 +1,117 @@
+﻿@model AcunMedyaProject_1.Models.TBL_About
+@{
+    ViewBag.Title = "CreateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>CreateAbout</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 700px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    input.form-control {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+    input.form-control:focus {
+        border-color: #3b82f6;
+        background: #ffffff;
+        outline: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        background-color: #10b981;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #059669;
+    }
+
+    .media (max-width: 768px) {
+        form {
+            padding: 20px;
+        }
+
+        input.form-control, button {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+    }
+</style>
+
+
+<form method="post">
+    <label>resim</label>
+    <input type="text" name="ImageUrl" class="form-control" />
+    <label>Başlık</label>
+    <input type="text" name="Title" class="form-control" />
+    <label>Doğum günü</label>
+    <input type="date" name="BirthDay" class="form-control" />
+    <label>Website</label>
+    <input type="text" name="Website" class="form-control" />
+    <label>Telefon</label>
+    <input type="text" name="Phone" class="form-control" />
+    <label>şehir</label>
+    <input type="text" name="City" class="form-control" />
+    <label>yaş</label>
+    <input type="text" name="Age" class="form-control" />
+    <label>Email</label>
+    <input type="text" name="Email" class="form-control" />
+    <label>Freelance</label>
+    <input type="text" name="Freelance" class="form-control" />
+    <label>Açıklama1</label>
+    <input type="text" name="Description1" class="form-control" />
+    <label>Açıklama 2</label>
+    <input type="text" name="Description2" class="form-control" />
+    <label>Derece</label>
+    <input type="text" name="Degree" class="form-control" />
+    <button class=" btn btn-success"> Ekle</button>
+
+
+</form>

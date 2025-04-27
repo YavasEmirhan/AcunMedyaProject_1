@@ -1,0 +1,79 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Project>
+
+<style>
+    #portfolio {
+        background-color: #f9f9f9;
+        background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png');
+        background-repeat: repeat;
+        padding: 60px 0;
+    }
+    .project-card {
+        background: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card .card-body {
+            padding: 20px;
+        }
+
+        .project-card .card-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00327d;
+            margin-bottom: 10px;
+        }
+
+        .project-card .card-text {
+            font-size: 15px;
+            color: #555;
+        }
+
+        .project-card .card-footer {
+            background: none;
+            border-top: none;
+            padding-bottom: 20px;
+        }
+</style>
+
+
+
+<section id="portfolio" class="portfolio section light-background">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2 style="color: #00327d">Portfolio</h2>
+        <p style="color: #00327d "></p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+        <div class="row gy-4">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                    <div class="card project-card" data-aos="fade-up" data-aos-delay="200">
+                        <img src="@item.Image1" class="card-img-top" alt="@item.ProjectName" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProjectName</h5>
+                            <p class="card-text">@item.Description</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="https://github.com/YavasEmirhan" target="_blank" class="btn btn-primary">İncele</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+

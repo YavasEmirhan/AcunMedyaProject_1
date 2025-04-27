@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>CreateProject</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 40px auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding: 30px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+        form:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 15px;
+        color: #555;
+        font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="file"],
+    textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+        input[type="text"]:focus,
+        input[type="file"]:focus,
+        textarea:focus {
+            border-color: #2196F3;
+            background: #fff;
+            outline: none;
+        }
+
+    textarea {
+        resize: vertical;
+        min-height: 100px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(135deg, #2196F3, #21CBF3);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+        button:hover {
+            background: linear-gradient(135deg, #1976D2, #1CB5E0);
+        }
+</style>
+
+
+<form method="post">
+    <label>Project Name</label>
+    <input type="text" name="projectname" placeholder="Proje Adı" required />
+
+    <label>Description</label>
+    <textarea name="description" placeholder="Açıklama" required></textarea>
+
+    <label>Image 1</label>
+    <input type="text" name="image1" />
+
+    <label>Image 2</label>
+    <input type="text" name="image2" />
+
+    <label>Image 3</label>
+    <input type="text" name="image3" />
+
+    <label>Category ID</label>
+    <input type="text" name="categoryid" placeholder="Kategori ID" required />
+
+    <button type="submit">Oluştur</button>
+</form>

@@ -1,0 +1,109 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Project>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Projects Page</h2>
+
+<div>
+
+    <style>
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 40px;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+            margin-top: 30px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: center;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        th {
+            background-color: #f7f9fc;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+        }
+
+        tr {
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 10px;
+            transition: transform 0.2s ease;
+        }
+
+            tr:hover {
+                background-color: #f1faff;
+                transform: scale(1.02);
+            }
+
+        input[type="text"],
+        input[type="file"] {
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 90%;
+            background: #f9f9f9;
+            font-size: 14px;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+            input[type="text"]:focus,
+            input[type="file"]:focus {
+                border-color: #2196F3;
+                background: #fff;
+                outline: none;
+            }
+    </style>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ProjectID</th>
+                <th>ProjectName</th>
+                <th>Description</th>
+                <th>Image1</th>
+                <th>Image2</th>
+                <th>Image3</th>
+                <th>CategoryID</th>
+                <th>Güncelle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th>@item.ProjectID</th>
+                    <th>@item.ProjectName</th>
+                    <th>@item.Description</th>
+                    <th>@item.Image1</th>
+                    <th>@item.Image2</th>
+                    <th>@item.Image3</th>
+                    <th>@item.CategoryID</th>
+                    <th> <a href="/Project/UpdateProject/@item.ProjectID" class="btn btn-success"> Güncelle</a></th>
+                    <th> <a href="/Project/DeleteProject/@item.ProjectID" class="btn btn-danger"> sil</a></th>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <a href="/Project/CreateProject/" class="btn btn-primary"> Oluştur</a>
+</div>

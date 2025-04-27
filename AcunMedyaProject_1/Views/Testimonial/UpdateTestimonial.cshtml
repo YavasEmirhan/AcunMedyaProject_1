@@ -1,0 +1,108 @@
+﻿@model AcunMedyaProject_1.Models.TBL_Testimonial
+@{
+    ViewBag.Title = "UpdateTestimonial";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Referans güncelleme sayfası</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: border-color 0.3s ease, background-color 0.3s ease;
+        margin-top: 5px;
+    }
+
+    input[type="text"]:focus {
+        border-color: #3b82f6;
+        background-color: #ffffff;
+        outline: none;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-success {
+        background-color: #10b981;
+        color: white;
+    }
+
+    .btn-success:hover {
+        background-color: #059669;
+    }
+
+    media (max-width: 768px) {
+        form {
+            padding: 20px;
+        }
+
+        input[type="text"],
+        .btn {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        label {
+            font-size: 13px;
+        }
+    }
+</style>
+
+
+<form method="post">
+    @Html.HiddenFor(m => m.TestimonialID) <br />
+    <label> Referans adı</label>
+    @Html.TextBoxFor(m => m.TestimonialName)<br />
+    <label>Referans Açıklaması</label>
+    @Html.TextBoxFor(m => m.Description2)<br />
+    <label>Referans Resmi</label>
+    @Html.TextBoxFor(m => m.ImageUrl)<br />
+    <label>Sayfa Açıklaması</label>
+    @Html.TextBoxFor(m => m.Description1)<br />
+    <label>Unvan</label>
+    @Html.TextBoxFor(m => m.Title)<br />
+    <button class=" btn btn-success"> Güncelle</button>
+
+</form>

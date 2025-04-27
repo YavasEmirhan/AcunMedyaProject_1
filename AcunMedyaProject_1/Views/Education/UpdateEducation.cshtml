@@ -1,0 +1,94 @@
+﻿@model AcunMedyaProject_1.Models.TBL_Education
+@{
+    ViewBag.Title = "UpdateEducation";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>UpdateEducation</h2>
+
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: #f9f9f9;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #3b82f6;
+            background: #ffffff;
+            outline: none;
+        }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .btn-success {
+        background-color: #10b981;
+        color: white;
+    }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+</style>
+
+<form method="post">
+    @Html.HiddenFor(m => m.EducationID) <br />
+    <label>Başlangıç Yılı</label>
+    @Html.TextBoxFor(m => m.StartYear)<br />
+    <label>Bitiş Yılı</label>
+    @Html.TextBoxFor(m => m.EndYear)<br />
+    <label>Eğitim Adı</label>
+    @Html.TextBoxFor(m => m.Name)<br />
+    <label>Okul Açıklaması</label>
+    @Html.TextBoxFor(m => m.Description)<br />
+    <label>Eğitim Konusu</label>
+    @Html.TextBoxFor(m => m.Section)<br />
+    <button class=" btn btn-success"> Güncelle</button>
+</form>

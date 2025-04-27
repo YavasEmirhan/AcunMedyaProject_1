@@ -1,0 +1,173 @@
+﻿@model List<AcunMedyaProject_1.Models.TBL_Testimonial>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<h2>Referanslar</h2>
+
+<style>
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: 40px;
+        color: #333;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: auto; /* Küçük ekranlarda kaydırma */
+    }
+
+    table.table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        overflow: hidden;
+        font-size: 14px;
+        table-layout: fixed; /* Sütunları eşitler */
+    }
+
+    thead {
+        background: #f1f5f9;
+    }
+
+    thead th {
+        text-align: center;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #333;
+        border-bottom: 2px solid #dee2e6;
+        word-wrap: break-word;
+    }
+
+    tbody td {
+        text-align: center;
+        padding: 12px 10px;
+        color: #555;
+        border-bottom: 1px solid #e9ecef;
+        background-color: #ffffff;
+        vertical-align: middle;
+        transition: background-color 0.3s ease;
+        word-wrap: break-word;
+    }
+
+    tbody tr:hover td {
+        background-color: #f0faff;
+    }
+
+    img {
+        border-radius: 8px;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    img:hover {
+        transform: scale(1.1);
+    }
+
+    .btn {
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+        margin: 2px;
+        white-space: nowrap;
+    }
+
+    .btn-success {
+        background-color: #22c55e;
+        color: white;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #16a34a;
+    }
+
+    .btn-danger {
+        background-color: #ef4444;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #dc2626;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .btn-primary:hover {
+        background-color: #2563eb;
+    }
+
+    .media (max-width: 768px) {
+        thead th, tbody td {
+            font-size: 13px;
+            padding: 10px;
+        }
+
+        .btn {
+            font-size: 12px;
+            padding: 6px 10px;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ReferansID</th>
+                <th>Referans Adı</th>
+                <th>Referans Açıklaması</th>
+                <th>Referans Resmi</th>
+                <th>Sayfa Açıklaması</th>
+                <th>Unvan</th>
+                <th>Güncelleme</th>
+                <th>Sil</th>
+            </tr>
+        <thead />
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TestimonialID</td>
+                    <td>@item.TestimonialName</td>
+                    <td>@item.Description2</td>
+                    <td><img src="@item.ImageUrl" style="width:50px" /></td>
+                    <td>@item.Description1</td>
+                    <td>@item.Title</td>
+                    <td><a href="/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-success">Güncelle</a></td>
+                    <td><a href="/Testimonial/DeleteTestimonial/@item.TestimonialID" class="btn btn-danger">sil</a></td>
+                </tr>
+            }
+        <tbody />
+    </table>
+    <a href="/Testimonial/CreateTestimonial/" class="btn btn-primary"> Oluştur</a>
+</div>
